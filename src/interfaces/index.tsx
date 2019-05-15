@@ -4,3 +4,9 @@ export interface ICardInfo {
   ccName: string;
   ccExpiration: string;
 }
+
+export interface IServerResponse {
+  message: string;
+  id: string;
+  ccName: string;
+}
