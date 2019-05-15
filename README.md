@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Check the To Do list at the end
 
+Before you run this please make sure you got the server installed and running at https://bitbucket.org/oscar_computer_guy/card_node/src/master/
+
 ## Available Scripts
 
 In the project directory, you can run:
