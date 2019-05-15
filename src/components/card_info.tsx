@@ -51,6 +51,8 @@ export const CardInfo = () => {
     <div className="container text-center">
       <h2>Card Information Page</h2>
       {!isWaiting ? (
+        // Idealy this form will be in a different component, that will be a must do. Due to lack of time
+        // I didn't make a separate component but will do in the future
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="ccName">Full name:</label>
