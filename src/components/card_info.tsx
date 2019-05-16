@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { ICardInfo } from "../interfaces";
+import React, { useState } from "react";
+import { ICardInfo, IFormProps } from "../interfaces";
 import { CardService } from "../services/cardService";
 import { Loading } from "./loading";
 import { CardProcessed } from "./card_processed";
 import { ErrorPage } from "./error";
+import { FormComponent } from "./form";
 
 export const CardInfo = () => {
   const [ccNumber, setccNumber] = useState("");
@@ -13,10 +14,6 @@ export const CardInfo = () => {
   const [isWaiting, setIsWaiting] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isAllGood, setIsAllGood] = useState(false);
-
-  useEffect(() => {
-    // Update the document title using the browser API
-  }, [isWaiting, isError]);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -47,62 +44,26 @@ export const CardInfo = () => {
       });
   };
 
+  const formProps: IFormProps = {
+    cardInfo: {
+      ccNumber: ccNumber,
+      ccCvv: ccCvv,
+      ccName: ccName,
+      ccExpiration: ccExpiration
+    },
+    setccNumber,
+    setccCvv,
+    setccName,
+    setccExpiration,
+    handleSubmit
+  };
   return (
     <div className="container text-center">
       <h2>Card Information Page</h2>
       {!isWaiting ? (
         // Idealy this form will be in a different component, that will be a must do. Due to lack of time
         // I didn't make a separate component but will do in the future
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="ccName">Full name:</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ccName"
-              placeholder="Enter your name"
-              onChange={e => setccName(e.target.value)}
-              value={ccName}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="ccNumber">Credit Card number:</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ccNumber"
-              placeholder="Enter your card number"
-              onChange={e => setccNumber(e.target.value)}
-              value={ccNumber}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="ccCvv">CVV:</label>
-            <input
-              type="password"
-              className="form-control"
-              id="ccCvv"
-              placeholder="CCV"
-              onChange={e => setccCvv(e.target.value)}
-              value={ccCvv}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="ccExpiration">Expiration date as MM/DD</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ccExpiration"
-              placeholder="MM/DD"
-              onChange={e => setccExpiration(e.target.value)}
-              value={ccExpiration}
-            />
-          </div>
-
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form>
+        <FormComponent {...formProps} />
       ) : (
         <Loading />
       )}
