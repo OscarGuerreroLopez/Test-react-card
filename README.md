@@ -30,6 +30,5 @@ After running npm run build you can fire up server.js with node and see the page
 
 ## To Do
 
-We can create a spearate component for the user form
 We should also apply some checking for the form fields to make sure the correct data is sent to the server. The server will reject any wrong values,
 but still is is better not to make the call to the server until we know everything is ok.
