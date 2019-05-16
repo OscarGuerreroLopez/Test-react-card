@@ -55,13 +55,7 @@ export const CardInfo = () => {
   return (
     <div className="container text-center">
       <h2>Card Information Page</h2>
-      {!isWaiting ? (
-        // Idealy this form will be in a different component, that will be a must do. Due to lack of time
-        // I didn't make a separate component but will do in the future
-        <FormComponent {...formProps} />
-      ) : (
-        <Loading />
-      )}
+      {!isWaiting ? <FormComponent {...formProps} /> : <Loading />}
       {isAllGood ? <CardProcessed /> : isError ? <ErrorPage /> : <></>}
     </div>
   );
