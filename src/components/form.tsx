@@ -11,7 +11,7 @@ export const FormComponent = (props: IFormProps) => {
     cardInfo
   } = props;
 
-  let { ccName, ccCvv, ccNumber, ccExpiration } = cardInfo;
+  const { ccName, ccCvv, ccNumber, ccExpiration } = cardInfo;
 
   return (
     <form onSubmit={handleSubmit}>
