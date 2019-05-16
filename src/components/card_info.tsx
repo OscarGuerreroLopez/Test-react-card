@@ -15,18 +15,18 @@ export const CardInfo = () => {
   const [isError, setIsError] = useState(false);
   const [isAllGood, setIsAllGood] = useState(false);
 
+  const cardInfo: ICardInfo = {
+    ccNumber: ccNumber,
+    ccCvv: ccCvv,
+    ccName: ccName,
+    ccExpiration: ccExpiration
+  };
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
     setIsWaiting(true);
     setIsError(false);
-
-    const cardInfo: ICardInfo = {
-      ccNumber: ccNumber,
-      ccCvv: ccCvv,
-      ccName: ccName,
-      ccExpiration: ccExpiration
-    };
 
     CardService(cardInfo)
       .then(response => {
@@ -45,12 +45,7 @@ export const CardInfo = () => {
   };
 
   const formProps: IFormProps = {
-    cardInfo: {
-      ccNumber: ccNumber,
-      ccCvv: ccCvv,
-      ccName: ccName,
-      ccExpiration: ccExpiration
-    },
+    cardInfo: cardInfo,
     setccNumber,
     setccCvv,
     setccName,
