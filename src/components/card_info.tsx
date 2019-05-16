@@ -21,7 +21,7 @@ export const CardInfo = () => {
     setIsWaiting(true);
     setIsError(false);
 
-    let cardInfo: ICardInfo = {
+    const cardInfo: ICardInfo = {
       ccNumber: ccNumber,
       ccCvv: ccCvv,
       ccName: ccName,
