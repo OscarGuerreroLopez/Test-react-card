@@ -45,7 +45,7 @@ export const CardInfo = () => {
   };
 
   const formProps: IFormProps = {
-    cardInfo: cardInfo,
+    cardInfo,
     setccNumber,
     setccCvv,
     setccName,
