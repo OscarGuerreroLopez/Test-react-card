@@ -1,3 +1,5 @@
+This is a test I did for a company in 24 hours
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Check the To Do list at the end
